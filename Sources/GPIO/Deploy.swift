@@ -38,7 +38,7 @@ func shell(_ command: String) {
     task.launch()
     task.waitUntilExit()
 }
-
+    	
 func deployAndExit() {
     print("================================")
     print("syncing code to the Raspberry Pi")
@@ -53,7 +53,7 @@ func deployAndExit() {
     print("============")
     print("running code")
     print("============")
-    shell("ssh -t pi@192.168.1.55 'cd workspace/first-swift && swift run --skip-build'")
+    shell("ssh -t pi@192.168.1.55 'killall -9 first-swift ; cd workspace/first-swift && swift run --skip-build'")
 
     exit(0)
 }
